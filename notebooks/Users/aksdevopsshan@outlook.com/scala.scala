@@ -6,7 +6,7 @@
 
 val containerName = "codered"
 val storageAccountName = "azprblob"
-val sas = "*************"
+val sas = "?sv=2020-02-10&ss=bfqt&srt=sco&sp=rwdlacuptfx&se=2021-06-01T02:23:35Z&st=2021-05-31T18:23:35Z&spr=https&sig=4uVjpFDKWeHzB%2FTlz6l8IayNLUI3TLSS9HWsRnC01LI%3D"
 val config = "fs.azure.sas." + containerName+ "." + storageAccountName + ".blob.core.windows.net"
 dbutils.fs.mount(
   source = "wasbs://codered@azprblob.blob.core.windows.net",
@@ -37,11 +37,7 @@ order by SUM(count)
  aggdata.write
  .option("header", "true")
  .format("com.databricks.spark.csv")
- .save("/mnt/result/SalesProfitData1.csv")
-
-// COMMAND ----------
-
-// MAGIC %sh git clone git@github.com:shan0809/Jumpstart-Terraform-0.12-on-Azure.git
+ .save("/mnt/result/SalesProfitData2.csv")
 
 // COMMAND ----------
 
